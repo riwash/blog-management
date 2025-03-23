@@ -53,17 +53,17 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item dropdown">
+                        <li class="nav-item ">
                             <a class="nav-link" href="{{ route('users.index') }}">
                                 Users
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ route('blog.index') }}">
+                                Blog
                             </a>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -89,8 +89,8 @@
 
         <main class="py-4">
             <div class="card">
-                @if(Session::has('message'))
-                <p class="alert alert-info">{{ Session::get('message') }}</p>
+                @if(Session::has('success'))
+                <p class="alert alert-info">{{ Session::get('success') }}</p>
                 @endif
             </div>
             @yield('content')

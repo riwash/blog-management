@@ -5,36 +5,34 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card card-body">
+                <a class="btn btn-primary w-25" href="{{ route('blog.create') }}"> Add Blog </a>
                <table class="table table-striped">
                 <tr>
                     <th> SN. </th>
-                    <th> Name </th>
-                    <th> Email </th>
-                    <th> User Type </th>
+                    <th> Title </th>
+                    <th> Content </th>
                     <th> Action </th>
                  </tr>
-                 @forelse($users as $key => $user)
+                 @forelse($blogs as $key => $blog)
                  <tr>
                     <td> {{ $key +1 }} </td>
-                    <td> {{ $user->name }}</td>
-                    <td> {{ $user->email }} </td>
-                    <td> {{ $user->user_type_name }} </td>
+                    <td> {{ $blog->title }}</td>
+                    <td> {{ $blog->content }} </td>
                     <td>
-                        <a href="{{ route('users.edit',$user->id) }}" class="btn btn-info">
+                        <a href="{{ route('blog.edit',$blog->id) }}" class="btn btn-info">
                             Edit
                         </a>
-                        <a href="{{ route('users.destroy',$user->id) }}" class="btn btn-danger">
+                        <a href="{{ route('blog.destroy',$blog->id) }}" class="btn btn-danger">
                             Delete
                         </a>
 
                     </td>
                  </tr>
                  @empty
-                    <tr> User Not Found </tr>
+                    <tr> blog Not Found </tr>
                  @endforelse
                </table>
                {{ $blogs->links() }}
-
         </div>
     </div>
 </div>
